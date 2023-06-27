@@ -247,7 +247,6 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(/* arr */) {
   throw new Error('Not implemented');
-  // return arr.map((item, i) => item[i - 1] + item);
 }
 
 /**
@@ -282,6 +281,7 @@ function getSecondItems(arr) {
  */
 function propagateItemsByPositionIndex(/* arr */) {
   throw new Error('Not implemented');
+  // return arr.find()
 }
 
 
@@ -298,8 +298,9 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  // throw new Error('Not implemented');
+  return arr.slice(-3).reverse();
 }
 
 
@@ -318,6 +319,13 @@ function get3TopItems(/* arr */) {
  */
 function getPositivesCount(/* arr */) {
   throw new Error('Not implemented');
+  // const newArr = [];
+  // arr.filter((item) => {
+  //   if (typeof item === 'number' && item > 0) {
+  //     newArr.push(item);
+  //   }
+  //   return newArr;
+  // });
 }
 
 /**
@@ -349,8 +357,8 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  return arr.reduce((s, c) => s + c, 0);
 }
 
 /**
@@ -383,8 +391,8 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.filter((num) => num === item).length;
 }
 
 /**
@@ -398,8 +406,8 @@ function findAllOccurrences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  return arr.join(',');
 }
 
 
