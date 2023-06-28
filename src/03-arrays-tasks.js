@@ -111,8 +111,8 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  return arr.filter((item) => item !== null && item !== undefined && item !== false && item !== '' && item !== 0 && !Number.isNaN(item));
 }
 
 /**
@@ -299,7 +299,6 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-  // throw new Error('Not implemented');
   return arr.slice(-3).reverse();
 }
 
@@ -317,15 +316,8 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
-  // const newArr = [];
-  // arr.filter((item) => {
-  //   if (typeof item === 'number' && item > 0) {
-  //     newArr.push(item);
-  //   }
-  //   return newArr;
-  // });
+function getPositivesCount(arr) {
+  return arr.filter((item) => typeof item === 'number' && item > 0).length;
 }
 
 /**
@@ -373,8 +365,8 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  return arr.filter((item) => item === null || item === undefined || item === false || item === '' || item === 0 || Number.isNaN(item)).length;
 }
 
 /**
@@ -437,8 +429,19 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  const sortArr = arr.sort((a, b) => {
+    if (a.country < b.country) {
+      return -1;
+    }
+    if (a.country === b.country) {
+      if (a.city < b.city) {
+        return -1;
+      }
+    }
+    return 0;
+  });
+  return sortArr;
 }
 
 /**
@@ -459,8 +462,17 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const arr = Array(n).fill(0).map(() => Array(n).fill(0));
+  return arr.map((item, i) => item.map((itemarr, j) => {
+    arr[i][j] = itemarr;
+    if (i === j) {
+      arr[i][j] = 1;
+    } else {
+      arr[i][j] = 0;
+    }
+    return arr[i][j];
+  }));
 }
 
 /**
@@ -476,8 +488,9 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const lengthArr = (end - start) + 1;
+  return Array(lengthArr).fill(0).map((item, idx) => start + idx);
 }
 
 /**
